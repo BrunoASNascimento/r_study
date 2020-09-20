@@ -40,4 +40,12 @@ modelo.linear <- lm(popularidade_e_duracao$freq~popularidade_e_duracao$duracao_m
 abline(lm(popularidade_e_duracao$freq~popularidade_e_duracao$duracao_mean))
 
 
-scatter.smooth(popularidade_e_duracao$duracao_mean,popularidade_e_duracao$freq)
+scatter.smooth(popularidade_e_duracao$duracao_mean,popularidade_e_duracao$freq,pch=21,col='blue')
+
+
+library(ggplot2)
+
+grafico <-ggplot(popularidade_e_duracao,aes(duracao_mean,freq))
+grafico <- grafico + geom_point()
+grafico <- grafico + geom_smooth()
+grafico
